@@ -1,0 +1,44 @@
+<UI>:
+    id:Scr_manager
+    Scr_1:
+    Scr_2:
+
+<Scr_2>:
+    name:"Scr_2"
+    BoxLayout:
+        orientation: 'vertical'
+        TextInput:
+            id:txt_number
+        BoxLayout:
+            ToggleButton:
+                text:"base2"
+                on_press: root.convert(*args)
+            ToggleButton:
+                text:"base8"
+                on_press: root.convert(*args)
+            ToggleButton:
+                text:"base16"
+                on_press: root.convert(*args)
+        Button:
+            id: btn_convert  
+            on_press: root.convert() #ผูกฟังก์ชั่น cal_bmi ไม่ส่งค่าใดๆ        
+        Label:      
+            id:lbl_output
+            #text:"convert ="
+       
+<Scr_1>:
+    name:'Scr_1'
+    canvas.before:
+        Rectangle:
+            source:"12.png"
+            size: root.width, root.height
+            
+            pos: self.pos
+
+    Button:
+        text:"แปลงฐานข้อมูล"
+        font_name:"tahoma" 
+        color: 'red'
+        on_press:app.root.current='Scr_2'
+        pos_hint:{'center_x' : 0.5,'center_y':0.5} #ปรับขยับชิดซ้ายขวา กลาง เรื่อยๆ 
+        size_hint:0.25,0.10
